@@ -1,0 +1,786 @@
+---
+API: 2
+OpenSesame: 3.1.7
+Platform: nt
+---
+set width 1024
+set uniform_coordinates no
+set title Brodman_1
+set synth_backend legacy
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend legacy
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "C:/Users/subject22/Documents/VU/BRAIN"
+set disable_garbage_collection yes
+set description "flash_card_equivalent_for learning_brain_anatomy"
+set coordinates relative
+set compensation 0
+set canvas_backend legacy
+set bidi no
+set background black
+
+define inline_script _inline_script
+	set description "Executes Python code"
+	set _run ""
+	set _prepare ""
+
+define keyboard_response _keyboard_response
+	set timeout infinite
+	set flush yes
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses p
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run importfunc always
+	run new_loop never
+	run loop always
+
+define form_multiple_choice form_multiple_choice
+	set timeout infinite
+	set spacing 10
+	set question "Your question"
+	__options__
+	Yes
+	No
+	Maybe
+	__end__
+	set margins "50;50;50;50"
+	set form_var unlock_response
+	set form_title unlock_text_form
+	set description "A simple multiple choice item"
+	set button_text Ok
+	set allow_multiple yes
+	set advance_immediately yes
+	set _theme gray
+
+define form_text_display form_text_display
+	set timeout infinite
+	set spacing 10
+	set rows "1;4;1"
+	set only_render no
+	set ok_text Ok
+	set margins "50;50;50;50"
+	set form_title "<span size=24>Title</span>"
+	set form_text "Your message"
+	set cols "1;1;1"
+	set _theme gray
+	widget 0 0 3 1 label text="[form_title]"
+	widget 0 1 3 1 label center=no text="[form_text]"
+	widget 1 2 1 1 button text="[ok_text]"
+
+
+define notepad getting_started
+	__note__
+	Hi,
+	Welcome to OpenSesame 2.9.7 "Hesitant Heisenberg"!
+	If you are new to OpenSesame, you may wish to follow one of the tutorials,
+	which can be found online. There are also many example experiments, which will
+	help you to get started with creating your own. These can be found in the
+	"examples" folder provided with OpenSesame or, again, online.
+	For more information, please refer to OpenSesame documentation area:
+	- <http://osdoc.cogsci.nl/>
+	And feel free to ask for help on the forum:
+	- <http://forum.cogsci.nl/>
+	Have fun with OpenSesame!
+	--
+	Sebastiaan
+	__end__
+	set description "Some pointers to help you get started!"
+
+define inline_script importfunc
+	set description "Executes Python code"
+	set _run ""
+	___prepare__
+	from openexp.sampler import sampler
+	import random
+	
+	counter = -1
+	
+	reward_ans_sleep_time		= 1000
+	
+	var.unlock_response 		= 0
+	var.response_mix 			= 'brodmann'
+	var.response_reward 		= 0
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	hidden_variable = 'nope not this one'
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	and_again_just_useless_scrolling = 0 
+	__end__
+
+define keyboard_response key_p
+	set timeout infinite
+	set flush yes
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses p
+
+define inline_script keyboard_placement
+	set description "Executes Python code"
+	set _run "c.show()"
+	___prepare__
+	c = self.offline_canvas()
+	cy = c.ycenter()
+	
+	image = exp.get_file('keyboard_and_hands.png')
+	c.image(image, scale =0.5)
+	c.text('suggested hand placement:', y = cy -200)
+	c.text('press \'p\' to continue', y = cy+300)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	hidden_variable = 'noam'
+	__end__
+
+define keyboard_response keyboard_response
+	set timeout infinite
+	set flush yes
+	set duration keypress
+	set description "Collects keyboard responses"
+
+define loop loop
+	set source_file ""
+	set source table
+	set repeat 31
+	set order random
+	set item sequence
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set column_order ""
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run sequence
+
+define form_multiple_choice mix
+	set timeout infinite
+	set spacing 10
+	set question "mode?"
+	__options__
+	brodmann
+	3d_anatomy
+	overview_images
+	all_mixed
+	__end__
+	set margins "50;50;50;50"
+	set form_var response_mix
+	set form_title mix_title
+	set description "A simple multiple choice item"
+	set button_text Ok
+	set allow_multiple no
+	set advance_immediately yes
+	set _theme gray
+
+define loop new_loop
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 empty_column ""
+	run new_sequence
+
+define sequence new_sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run start always
+	run unlock_question always
+	run mix always
+	run reward always
+	run keyboard_placement always
+	run _keyboard_response always
+
+define form_multiple_choice reward
+	set timeout infinite
+	set spacing 10
+	set question "with or without reward images?"
+	__options__
+	with
+	without
+	__end__
+	set margins "50;50;50;50"
+	set form_var response_reward
+	set form_title reward_title
+	set description "A simple multiple choice item"
+	set button_text Ok
+	set allow_multiple no
+	set advance_immediately yes
+	set _theme gray
+
+define sequence sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run stim_pres always
+	run key_p always
+
+define sketchpad start
+	set start_response_interval no
+	set reset_variables no
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text="FLASHCARD BUILDER 1.0:<br /><br />'Brain Anatomy'<br /><br /><br />check your volume level: be careful; sounds can be loud<br /><br /><br />-- press any key to continue -- <br />" x=0 y=0 z_index=0
+
+define inline_script stim_pres
+	set description "Executes Python code"
+	___run__
+	from openexp.keyboard import keyboard
+	kb 						= keyboard(exp, keylist=['y', 'n'],timeout=0)
+	#use: keylist=['z', 'm'] to set a specific response
+	fix.show()
+	self.sleep(jitter_time)
+	kb.flush()
+	start_time 				= self.time()
+	counter_2 = 0
+	counter_3 = 120
+	while True:
+		counter_2 = 50 + counter_2 + (2-(time_out_time/10000))
+		counter_3 = counter_3 + (.4-(time_out_time/50000.0))
+		response, time 		= kb.get_key()
+		c.show()
+		if counter_2 > time_out_time/10:
+			c.line(cx+left_space-(width),cy-left_space+counter_3, cx+left_space+(width),cy-left_space+counter_3, penwidth= 20, color = 'black')
+			counter_2 = 0 
+			
+		if response != None or time-start_time > time_out_time:
+			end_time = self.time()
+			c2.show()
+			break
+	
+	if exp.get('response_reward') != 'without':
+		if response == 'n':
+			error3.play()
+	
+		if response == 'y':
+			if counter%2== 1:
+				cash1.play()
+			if counter%2== 0:
+				cash2.play()
+			random_number2= random.randint(0,5)
+			if random_number2 == 0:
+				random.choice(all_sounds).play()
+			random_number3= random.randint(0,7)
+			if unlock == False:
+				
+				if random_number3 == 0:
+					A = random.choice(reward_names_1)
+					B = random.choice([horse1,horse2,sheep])
+					B.play()
+					name = exp.get_file(A)
+					c3.image(name, scale = 0.5)
+					c3.text('<span color = orange size = 30> Hurray </span>', y = cy -350)
+					response1 = '<span size = 10> --> this word should be interpreted as some form of an automatic expressions of jubilation, of course given the fact his is computer generated automatic epxression of jubilation seems odd, howevever considere the human behind these lines and imagine her/his response in order to allow it to count toward the dopamine release associated with this correct reponse) </span>' 
+					response2 = '<span size = 20> some subscript </span>'
+					c3.text(random.choice([response1, response2]), y = cy -300)
+					from openexp.keyboard import keyboard
+					kb 						= keyboard(exp,timeout=0)
+					kb.flush()
+					start_time 				= self.time()
+					while True:
+						response, time 		= kb.get_key()
+						c3.show()
+						if response != None or time-start_time > reward_time_out_time:
+							end_time = self.time()
+							c2.show()
+							break
+				counter = 0
+				#random_number3 = 1
+				if random_number3 == 1:
+					reward_time_out_time = 7000
+					c3.image(exp.get_file('matrix1.png'))
+					c3.text('do not try and bend the spoon, instead, only try to realize the truth', y = cy + 200)
+					c3.text('there is no spoon', y  = cy + 250)
+					
+					while True:
+						response, time 		= kb.get_key()
+						counter = counter+1
+						image = exp.get_file(matrix_names[counter%8])
+						c3.image(image)
+						c3.show()
+						self.sleep(230)
+						
+						if response != None or time-start_time > reward_time_out_time:
+							end_time = self.time()
+							c2.show()
+							break
+						
+					
+			if unlock == True:
+				if random_number3 == 0:
+					#woman1.play()
+					woman_breathing.play()
+					name = exp.get_file('twinp_sherilyn_fenn_audrey.jpg')
+					self.sleep(reward_ans_sleep_time)
+					c.image(name, scale = 0.5)
+					c.show()
+					self.sleep(7000)
+			
+	#play this for one of the super easter eggs:
+	#for i in range(0, len(all_sounds)):
+	#	all_sounds[i].play()
+	__end__
+	___prepare__
+	left_space 	= 450
+	height 		= 700
+	width		= 70
+	
+	if exp.get('response_mix') == 'brodmann':
+		random_number 	= random.randint(1,2)
+	if exp.get('response_mix') == '3d_anatomy':
+		random_number 	= random.randint(3,4)
+	if exp.get('response_mix') == 'overview_images':
+		random_number 	= 5
+	if exp.get('response_mix') == 'all_mixed':
+		random_number 	= random.randint(1,5)
+	
+	
+	time_out_time			= 5000
+	reward_time_out_time	= 2500
+	
+	counter 		= counter + 1
+	c 				= self.offline_canvas()
+	c2 				= self.offline_canvas()
+	c3 				= self.offline_canvas()
+	fix 			= self.offline_canvas()
+	jitter_time		= random.randint(300,900)
+	cx = c.xcenter()
+	cy = c.ycenter()
+	fix.circle(cx,cy, 30, color = 'orange', fill = True)
+	fix.circle(cx,cy, 25, color = 'red', fill = True)
+	fix.circle(cx,cy, 20, color = 'gold', fill = True)
+	fix.circle(cx,cy, 10, color = 'green', fill = True)
+	
+	BA_names = [1,10,11,17,18,19,2,20,21,22,23,24,26,27,29,3,30,31,32,37,38,39,4,40,41,42,44,45,46,47,5,52,6,7,8,9]#note: if 50 is present: remove from pool + BA_names list
+	
+	three_d_names = ['back-view_corpus_callosum_colored','fornix_right_colored','medial_view_left_hippocampus_colored','medial_view_left_putamen_colored','pituitary','pituitary_stalk','sagitall_view_hemispheres_removes','underview_corpus_callosum colored','underview_hemi_removed_accumbens_left_colored','underview_hemi_removed_globpall_left_colored','underview_pons_left']
+	overview_names = ['Z_brodmann_3d', 'Z_brodmann_areas_medial_view', 'Z_lateral_geniculate_nucleus', 'Z_brodmann_areas_medial_view']
+	reward_names_1 = ['9_pegasus.jpg', 'unicorn.jpg','unicorn2.jpg','unicorn4.jpg','unicorn5.jpg','unicorn6.jpg','unicorn7.jpg']
+	matrix_names = ['matrix1.png' ,'matrix2.png' ,'matrix3.png' ,'matrix4.png','matrix4_1.png', 'matrix4_2.png', 'matrix5_1.png','matrix5_3.png','matrix5_4.png']
+	
+	
+	if random_number == 1 or random_number == 2:
+		#BA
+		name = random.choice(BA_names)
+		rand_A = random.choice([1,2,3,4,5,6,7])
+		if rand_A <= 6 and (name in [12, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]) == False:
+			image = exp.get_file('book_%s_brodmann_q.png' %name) 
+			image2 = exp.get_file('book_%s_brodmann_ans.png' %name) # scale = ?
+			scale = 1
+		else:
+			image = exp.get_file('ba%s.png'%name) # scale = 2.0
+			image2 = exp.get_file('ba%s_ans.png'%name)
+			scale = 2.0
+		
+	
+	if random_number == 3 or random_number == 4:
+		#3d
+		name = random.choice(three_d_names)
+		image = exp.get_file('%s.png'%name) # scale = 2.0
+		image2 = exp.get_file('%s_ans.png'%name) # scale = 2.0
+		scale = 0.7
+				
+	if random_number == 5:
+		#generic overview
+		number = random.randint(0, len(overview_names)-1)
+		name = overview_names[number]	
+		image = exp.get_file('%s.png'%name) # scale = 2.0
+		#change this
+		image2 = exp.get_file('%s_ans.png'%name) # scale = 2.0
+		scale = 0.4
+		if name == 'Z_brodmann_areas_medial_view':
+			scale = 0.3
+		if name == 'Z_lateral_geniculate_nucleus':
+			scale = 1.2
+	
+	c.image(image, scale = scale)
+	c2.image(image2, scale = scale)
+	c2.text(' continue with\'p\'',y = cy - 350)
+	
+	
+	A = left_space + width
+	B = left_space - width
+	
+	top_r = cx + A, cy - height
+	top_l = cx + B, cy - height
+	bot_r = cx + A, cy + height
+	bot_l = cx + B, cy + height
+	
+	top_r2 = cx + A, cy - height
+	top_l2 = cx + B, cy - height
+	bot_r2 = cx + A, cy - 300
+	bot_l2 = cx + B, cy - 300
+	
+	top_r3 = cx + A, cy + 200
+	top_l3 = cx + B, cy + 200
+	bot_r3 = cx + A, cy + height
+	bot_l3 = cx + B, cy + height
+	
+	
+	c.polygon([top_r, top_l, bot_l, bot_r], penwidth = 10, color = 'gold', fill = True)
+	c.polygon([top_r2, top_l2, bot_l2, bot_r2], penwidth = 10, color = 'black', fill = True)
+	c.polygon([top_r3, top_l3, bot_l3, bot_r3], penwidth = 10, color = 'black', fill = True)
+	
+	c.text('answer with \'y\' or \'n\'', x = cx, y = cy -left_space)
+	
+	#draw the reward screens:
+	horse1 = sampler(exp,exp.get_file('hinniken.wav'))
+	horse2 = sampler(exp,exp.get_file('horse_walking.wav'))
+	sheep = sampler(exp,exp.get_file('sheep.wav'))
+	cow = sampler(exp,exp.get_file('cow.wav'))
+	electric = sampler(exp,exp.get_file('wavy_electronic.wav'))
+	cash1 = sampler(exp,exp.get_file('register.wav'))
+	cash2 = sampler(exp,exp.get_file('CASHREG2.wav'))
+	error3 = sampler(exp,exp.get_file('error3.wav'))
+	all_sounds = [horse1,horse2,sheep,cow,cash1,cash2]
+	
+	#get more sounds here:
+	#http://www.grsites.com/archive/sounds/category/23/
+	#soundbible.com
+	#http://www.orangefreesounds.com/horse-neighing/
+	
+	
+	
+	
+	
+	
+	#UNLOCK_SECTION::: RESPONSE CODE = HASH #
+	unlock 					= 0
+	if exp.get('unlock_response') == hidden_variable:
+		unlock = 1
+	
+	reward_names_2 = []
+	__end__
+
+define form_text_input unlock_question
+	set timeout infinite
+	set spacing 10
+	set rows "1;1;1;.7;1;1"
+	set only_render no
+	set margins "50;50;50;50"
+	set form_var unlock_response
+	set form_title text_title
+	set form_question "To unlock special reward answer correctly: which unusual holiday is celebrated in the movie 'captain fantastic' (respond one word only, no capitals) -- press enter to continue -- ?"
+	set cols 1
+	set _theme gray
+	widget 0 1 1 1 label text="[form_title]"
+	widget 0 2 1 1 label center=no text="[form_question]"
+	widget 0 3 1 1 text_input focus=yes return_accepts=yes stub="" var="[form_var]"
+
+
