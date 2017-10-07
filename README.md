@@ -1,4 +1,4 @@
-# Brain_anatomy_flashcards
+## Brain anatomy flashcards
 Simple opensesame script imitating flashcards for reviewing brain anatomy 
 images from:
 ```
